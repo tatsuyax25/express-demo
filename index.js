@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
 
+// Adding new courses
+const courses = [
+    { id: 1, name: 'course1' },
+    { id: 2, name: 'course2' },
+    { id: 3, name: 'course3' },
+]
+
 // This is the home page
 app.get('/', (req, res) => {
     res.send('Hello World');
