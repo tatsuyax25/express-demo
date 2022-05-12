@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json());
+
 // Adding new courses
 const courses = [
     { id: 1, name: 'course1' },
@@ -14,8 +16,18 @@ app.get('/', (req, res) => {
 });
 
 // This is a second page
-app.get('/api/courses', (req,res) => {
+app.get('/api/courses', (req, res) => {
     res.send(courses);
+});
+
+// Use the POST here to make a new post.
+app.post('/api/courses', (req, res) => {
+    const course = {
+        id: courses.length + 1,
+        name: req.body.name
+    };
+    course.push(course);
+    res.send(course);
 });
 
 // /api/courses/1
